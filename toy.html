@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <title>AR Toy store</title>
+    <!--Specifying Platform Type-->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"></meta>
+   <!--Libraries-->
+   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+   <script src="https://raw.githack.com/whitehatjr/ar-gesture-handler/main/index.js"></script>
+
+
+   <!--bootstrap-->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  
+   <!--SweetAlert-->
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+   <!--Must include libraries for firebase-->
+      <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+
+   <!--Local libraries-->
+   <script src='js/addButtons.js'></script>
+   <script src="js/addMarkers.js"></script>
+   <script src="js/markerHandler.js"></script>
+
+   <link href="style.css" rel="stylesheet"></link>
+
+   <!--Firebase-->
+   <script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyAw3rTycrx-Pvkr1bYi1e3fVoPRSFBjtDQ",
+    authDomain: "digital-toy-store.firebaseapp.com",
+    projectId: "digital-toy-store",
+    storageBucket: "digital-toy-store.appspot.com",
+    messagingSenderId: "787303382125",
+    appId: "1:787303382125:web:026006b1dbf7bddf10d364",
+    measurementId: "G-LW11MVPL6T"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+   </script>
+  </head>
+  <body style="margin: 0px;">
+   <a-scene id="main-scene" vr-mode-ui="enabled: false" ar-js 
+     embedded="sourceType: webcam;sourceWidth: 1280;sourceHeight: 960;displayWidth: 1280;displayHeight: 960"
+     gesture-detector create-markers  store-buttons>
+    <a-entity camera></a-entity>
+
+    <div class="button-div"></div>
+   </a-scene>
+  </body>
+</html>
